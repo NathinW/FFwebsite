@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+{% block body %}
+<div class="mx-auto" style="width: 475px;">
+<h1 class="text-light bg-dark">Welcome to the Fantasy Football Reddit Analyzer!</h1>
+<h4>Enter the player's name to find out their score and to see recent posts about them</h4>
+  <form method="POST" action="results">
+      Player name:
+        <input type="text" name="playerName" required/>  <input id="submit" type="submit" value="Submit!"/>
+      <br/>
+      <br/>
+  <p><a href="leaderboard" class="text-light bg-dark">Click here for the leaderboard</a></p>
+  </div>
+
+
+
+
+{% endblock %}

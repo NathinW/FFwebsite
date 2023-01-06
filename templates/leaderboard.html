@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+<p><a href="home" class="text-light bg-dark">Go back home</a></p>
+<h1 class="mx-auto" style="width: 475px;"> Leaderboard </h1>
+{% endblock %}
+{% block body %}
+{% for row in data %}
+<div class="mx-auto" style="width: 475px;">
+<div class="list-group">
+<a href="#" class="list-group-item list-group-item-action active">
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{row.PlayerName}}</h5>
+    <small>Score: {{row.PlayerScore}} ({{row.Searches}} searches)</small>
+  </div>
+</a>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head %}
+<p><a href="home" class="text-light bg-dark">Go back home</a></p>
+<h1 class="mx-auto" style="width: 475px;"> Results for {{player}}: </h1>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h4 class="display-4">{{player}}'s overall sentiment score is {{avg}}</h4>
+    <p class="lead">This score is calculated by analyzing the sentiment of the title of each post about the player.
+                    The player's score is out of 100, with higher numbers meaning users are more positive about the player</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm">
+      {% for i in range(titles|length) %}
+      <div class="mx-auto" style="width: 700px;">
+      <ul class="list-group">
+        {% if scores[i] > 60 %}
+        <li class="list-group-item list-group-item-success">
+          <span class="badge badge-primary badge-pill">Score: {{scores[i]}}</span>
+          <h4>{{titles[i]}}</h4>
+          {{content[i]}}</li>
+
+        {% elif scores[i] > 40 %}
+        <li class="list-group-item list-group-item-secondary">
+          <span class="badge badge-primary badge-pill">Score: {{scores[i]}}</span>
+          <h4>{{titles[i]}}</h4>
+          {{content[i]}}</li>
+        {% else %}
+        <li class="list-group-item list-group-item-danger">
+          <span class="badge badge-primary badge-pill">Score: {{scores[i]}}</span>
+          <h4>{{titles[i]}}</h4>
+          {{content[i]}}</li>
+        {% endif %}
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
